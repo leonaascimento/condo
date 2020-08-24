@@ -24,14 +24,14 @@ class UnitTableControllerTest {
     private lateinit var mockMvc: MockMvc
 
     @Test
-    fun `list home units as json`() {
-        val homeUnits = listOf(
+    fun `list units as json`() {
+        val units = listOf(
             UnitTable(UUID.randomUUID(), 1, 100.1, "John Doe"),
             UnitTable(UUID.randomUUID(), 2, 56.0, "Martin Jones")
         )
-        given(repository.findAll()).willReturn(homeUnits)
+        given(repository.findAll()).willReturn(units)
 
-        val homeUnitsJson = """
+        val unitsJson = """
             [
                 { "number":1, "size":100.1, "owner": "John Doe" },
                 { "number":2, "size":56, "owner": "Martin Jones" }
@@ -40,6 +40,6 @@ class UnitTableControllerTest {
         mockMvc.perform(get("/v1/units"))
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-            .andExpect(content().json(homeUnitsJson))
+            .andExpect(content().json(unitsJson))
     }
 }

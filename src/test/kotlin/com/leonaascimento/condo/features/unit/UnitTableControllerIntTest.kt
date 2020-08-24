@@ -18,7 +18,7 @@ class UnitTableControllerIntTest {
     private lateinit var mockMvc: MockMvc
 
     @Test
-    fun `list home units`() {
+    fun `list units`() {
         mockMvc.perform(get("/v1/units"))
             .andExpect(status().isOk)
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))

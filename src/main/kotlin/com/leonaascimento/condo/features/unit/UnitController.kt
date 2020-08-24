@@ -13,8 +13,8 @@ class UnitController(val repository: UnitRepository) {
 
     @GetMapping
     fun list(): ResponseEntity<Iterable<UnitModel>> {
-        val homeUnits = repository.findAll().map { UnitModel(it.number, it.size, it.owner) }
+        val units = repository.findAll().map { UnitModel(it.number, it.size, it.owner) }
 
-        return ResponseEntity.ok(homeUnits)
+        return ResponseEntity.ok(units)
     }
 }
