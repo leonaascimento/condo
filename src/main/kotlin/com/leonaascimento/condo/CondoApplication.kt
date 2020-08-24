@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class CondoApplication
 
 fun main(args: Array<String>) {
-	runApplication<CondoApplication>(*args)
+    runApplication<CondoApplication>(*args)
 }
